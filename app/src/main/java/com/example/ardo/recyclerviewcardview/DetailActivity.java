@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class DetailActivity extends AppCompatActivity {
 
     ImageView imgDetailAvatar;
@@ -27,5 +29,9 @@ public class DetailActivity extends AppCompatActivity {
         txtDetailJudul.setText(getIntent().getStringExtra("id_judul"));
         txtDetailWaktu.setText(getIntent().getStringExtra("id_waktu"));
         txtDetailDeskripsi.setText(getIntent().getStringExtra("id_desc"));
+
+        Glide.with(this)
+                .load(getIntent().getIntExtra("id_img", 0))
+                .into(imgDetailAvatar);
     }
 }

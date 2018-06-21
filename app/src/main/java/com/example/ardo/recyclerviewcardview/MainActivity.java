@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         lstChatHistory.setLayoutManager(linear);
 
         item = new ArrayList<>();
-        item.add(new PolaItem(0, "Yuningsih","Assalamualaikum", "07:32 PM"));
-        item.add(new PolaItem(0, "Monic","Mas ardo lagi dimana?", "10:54 AM"));
-        item.add(new PolaItem(0, "Ardo Manis","Hallo ardo", "09:31 AM"));
+        item.add(new PolaItem(R.drawable.ic_sentiment_satisfied_black_24dp, "Yuningsih","Assalamualaikum", "07:32 PM"));
+        item.add(new PolaItem(R.drawable.ic_sentiment_very_satisfied_black_24dp, "Monic","Mas ardo lagi dimana?", "10:54 AM"));
+        item.add(new PolaItem(R.drawable.ic_sentiment_neutral_black_24dp, "Ardo Manis","Hallo ardo", "09:31 AM"));
 
         adapter = new ChatAdapter(this, item);
 

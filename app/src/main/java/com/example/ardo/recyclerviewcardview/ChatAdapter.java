@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
@@ -32,6 +34,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ChatHolder holder, final int position) {
+
+        Glide.with(context)
+                .load(item.get(position).getImg())
+                .into(holder.imgAvatar);
+
         holder.txtJudul.setText(item.get(position).getJudul());
         holder.txtDeskripsi.setText(item.get(position).getDeskripsi());
         holder.txtWaktu.setText(item.get(position).getWaktu());
@@ -43,6 +50,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
                 i.putExtra("id_judul", item.get(position).getJudul());
                 i.putExtra("id_desc", item.get(position).getDeskripsi());
                 i.putExtra("id_waktu", item.get(position).getWaktu());
+                i.putExtra("id_img", item.get(position).getImg());
                 v.getContext().startActivity(i);
             }
         });
