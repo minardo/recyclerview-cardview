@@ -31,7 +31,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ChatHolder holder, final int position) {
         holder.txtJudul.setText(item.get(position).getJudul());
         holder.txtDeskripsi.setText(item.get(position).getDeskripsi());
         holder.txtWaktu.setText(item.get(position).getWaktu());
@@ -40,6 +40,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), DetailActivity.class);
+                i.putExtra("id_judul", item.get(position).getJudul());
+                i.putExtra("id_desc", item.get(position).getDeskripsi());
+                i.putExtra("id_waktu", item.get(position).getWaktu());
                 v.getContext().startActivity(i);
             }
         });

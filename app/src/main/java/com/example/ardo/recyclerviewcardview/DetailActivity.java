@@ -19,5 +19,13 @@ public class DetailActivity extends AppCompatActivity {
         txtDetailJudul = (TextView) findViewById(R.id.txt_detail_judul);
         txtDetailWaktu = (TextView) findViewById(R.id.txt_detail_waktu);
         txtDetailDeskripsi = (TextView) findViewById(R.id.txt_detail_deskripsi);
+
+        getData();
+    }
+
+    private void getData() {
+        txtDetailJudul.setText(getIntent().getStringExtra("id_judul"));
+        txtDetailWaktu.setText(getIntent().getStringExtra("id_waktu"));
+        txtDetailDeskripsi.setText(getIntent().getStringExtra("id_desc"));
     }
 }
